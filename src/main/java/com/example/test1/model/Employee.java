@@ -25,7 +25,7 @@ public class Employee {
     String phone;
 
     @ManyToOne
-    @JoinColumn(name = "departmentId")
+    @JoinColumn(name = "department_Id")
     Department departmentId;
 
     public enum Gender {

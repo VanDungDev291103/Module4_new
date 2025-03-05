@@ -9,7 +9,7 @@ CREATE TABLE employee(
     gender enum('MALE','FEMAL','OTHER') NOT NULL,
     salary double,
     phone varchar(15),
-    department_id int,
-    foreign key (department_id) references departement(id)
+    department_Id int,
+    foreign key (department_Id) references departement(id)
 );
 

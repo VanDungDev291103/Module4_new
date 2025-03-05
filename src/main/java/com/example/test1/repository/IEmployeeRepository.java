@@ -26,6 +26,4 @@ public interface IEmployeeRepository extends JpaRepository<Employee, Integer> {
                        OR (:salary = 'gt20' AND e.salary > 20000000))
             """, nativeQuery = true)
     List<Employee> findByAttributes(@Param("searchRequest") EmployeeSearchRequest searchRequest);
-
-    void delete(int id);
 }
