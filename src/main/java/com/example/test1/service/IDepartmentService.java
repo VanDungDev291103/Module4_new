@@ -8,8 +8,11 @@ import java.util.Optional;
 
 public interface IDepartmentService {
     List<Department> findAll();
+
     Optional<Department> findById(Integer id);
+
     Department save(Department department);
+
     void delete(int department);
 
 }

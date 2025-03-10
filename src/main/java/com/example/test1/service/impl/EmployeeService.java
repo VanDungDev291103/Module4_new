@@ -7,6 +7,8 @@ import com.example.test1.service.IEmployeeService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,8 +21,8 @@ public class EmployeeService implements IEmployeeService {
     IEmployeeRepository employeeRepository;
 
     @Override
-    public List<Employee> findByAttributes(EmployeeSearchRequest searchRequest) {
-        return employeeRepository.findByAttributes(searchRequest);
+    public Page<Employee> findByAttributes(EmployeeSearchRequest searchRequest, Pageable pageable) {
+        return employeeRepository.findByAttributes(searchRequest,pageable);
     }
 
     @Override

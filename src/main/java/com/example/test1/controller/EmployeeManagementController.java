@@ -1,6 +1,7 @@
 package com.example.test1.controller;
 
 import com.example.test1.dto.employee.EmployeeSearchRequest;
+import com.example.test1.dto.page.PageResponse;
 import com.example.test1.exception.AppException;
 import com.example.test1.exception.ErrorCode;
 import com.example.test1.model.Employee;
@@ -8,6 +9,7 @@ import com.example.test1.service.impl.EmployeeService;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,8 +23,8 @@ public class EmployeeManagementController {
     EmployeeService employeeService;
 
     @GetMapping
-    public ResponseEntity<?> getEmployeeAttributes(EmployeeSearchRequest employeeSearchRequest) {
-        return ResponseEntity.ok(employeeService.findByAttributes(employeeSearchRequest));
+    public ResponseEntity<?> getEmployeeAttributes(EmployeeSearchRequest employeeSearchRequest, Pageable pageable) {
+        return ResponseEntity.ok(new PageResponse<>(employeeService.findByAttributes(employeeSearchRequest,pageable)));
     }
 
     @GetMapping("/{id}")

@@ -3,6 +3,8 @@ package com.example.test1.repository;
 
 import com.example.test1.dto.employee.EmployeeSearchRequest;
 import com.example.test1.model.Employee;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -25,5 +27,5 @@ public interface IEmployeeRepository extends JpaRepository<Employee, Integer> {
                        OR (:salary = '10-20' AND e.salary BETWEEN 10000000 AND 20000000)
                        OR (:salary = 'gt20' AND e.salary > 20000000))
             """, nativeQuery = true)
-    List<Employee> findByAttributes(@Param("searchRequest") EmployeeSearchRequest searchRequest);
+    Page<Employee> findByAttributes(@Param("searchRequest") EmployeeSearchRequest searchRequest, Pageable pageable);
 }

@@ -1,4 +1,4 @@
-CREATE TABLE departement(
+CREATE TABLE department(
     id int auto_increment primary key,
     name varchar(50) not null
 );
@@ -10,6 +10,6 @@ CREATE TABLE employee(
     salary double,
     phone varchar(15),
     department_Id int,
-    foreign key (department_Id) references departement(id)
+    foreign key (department_Id) references department(id)
 );
 
